@@ -1,0 +1,81 @@
+{
+  "seed": 42,
+  "dataset_sha256": "9d7f6f1ef737aba562ffe6a0cb092080e95800530235f2280e60b4d6dd12aaea",
+  "method": "Random split stratified by original attack label",
+  "splits": {
+    "train": {
+      "rows": 1511642,
+      "binary_counts": {
+        "0": 1256616,
+        "1": 255026
+      },
+      "original_label_counts": {
+        "BENIGN": 1256616,
+        "DoS Hulk": 103630,
+        "DDoS": 76806,
+        "PortScan": 54078,
+        "DoS GoldenEye": 6171,
+        "FTP-Patator": 3559,
+        "DoS slowloris": 3230,
+        "DoS Slowhttptest": 3137,
+        "SSH-Patator": 1931,
+        "Bot": 1169,
+        "Web Attack \ufffd Brute Force": 882,
+        "Web Attack \ufffd XSS": 391,
+        "Infiltration": 22,
+        "Web Attack \ufffd Sql Injection": 13,
+        "Heartbleed": 7
+      }
+    },
+    "validation": {
+      "rows": 503881,
+      "binary_counts": {
+        "0": 418872,
+        "1": 85009
+      },
+      "original_label_counts": {
+        "BENIGN": 418872,
+        "DoS Hulk": 34543,
+        "DDoS": 25603,
+        "PortScan": 18026,
+        "DoS GoldenEye": 2057,
+        "FTP-Patator": 1186,
+        "DoS slowloris": 1077,
+        "DoS Slowhttptest": 1045,
+        "SSH-Patator": 644,
+        "Bot": 390,
+        "Web Attack \ufffd Brute Force": 294,
+        "Web Attack \ufffd XSS": 131,
+        "Infiltration": 7,
+        "Web Attack \ufffd Sql Injection": 4,
+        "Heartbleed": 2
+      }
+    },
+    "test": {
+      "rows": 503881,
+      "binary_counts": {
+        "0": 418872,
+        "1": 85009
+      },
+      "original_label_counts": {
+        "BENIGN": 418872,
+        "DoS Hulk": 34544,
+        "DDoS": 25602,
+        "PortScan": 18026,
+        "DoS GoldenEye": 2058,
+        "FTP-Patator": 1186,
+        "DoS slowloris": 1077,
+        "DoS Slowhttptest": 1046,
+        "SSH-Patator": 644,
+        "Bot": 389,
+        "Web Attack \ufffd Brute Force": 294,
+        "Web Attack \ufffd XSS": 130,
+        "Infiltration": 7,
+        "Web Attack \ufffd Sql Injection": 4,
+        "Heartbleed": 2
+      }
+    }
+  }
+}
+
+Split indices saved: /home/judas/ids-project/data/processed/split_indices.npz

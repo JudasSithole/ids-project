@@ -1,0 +1,187 @@
+{
+  "evaluation_partition": "validation",
+  "architecture": [
+    32,
+    16
+  ],
+  "threshold": 0.5,
+  "training_rows": 1511642,
+  "validation_rows": 503881,
+  "best_epoch": 10,
+  "epochs_run": 14,
+  "epoch_history": [
+    {
+      "epoch": 1,
+      "validation_f1": 0.8590204600648301
+    },
+    {
+      "epoch": 2,
+      "validation_f1": 0.8785732660636192
+    },
+    {
+      "epoch": 3,
+      "validation_f1": 0.8751415540294848
+    },
+    {
+      "epoch": 4,
+      "validation_f1": 0.9185012794493955
+    },
+    {
+      "epoch": 5,
+      "validation_f1": 0.911153937766614
+    },
+    {
+      "epoch": 6,
+      "validation_f1": 0.9247717172610493
+    },
+    {
+      "epoch": 7,
+      "validation_f1": 0.923607704814131
+    },
+    {
+      "epoch": 8,
+      "validation_f1": 0.922676963241666
+    },
+    {
+      "epoch": 9,
+      "validation_f1": 0.9307764993607915
+    },
+    {
+      "epoch": 10,
+      "validation_f1": 0.9367787340007533
+    },
+    {
+      "epoch": 11,
+      "validation_f1": 0.9337843561222443
+    },
+    {
+      "epoch": 12,
+      "validation_f1": 0.9145897477448279
+    },
+    {
+      "epoch": 13,
+      "validation_f1": 0.9250509008489878
+    },
+    {
+      "epoch": 14,
+      "validation_f1": 0.9342885046500788
+    }
+  ],
+  "precision": 0.8970395090967811,
+  "recall": 0.9802020962486325,
+  "f1": 0.9367787340007533,
+  "average_precision": 0.9914053124254035,
+  "false_positive_rate": 0.022832750816478543,
+  "confusion_matrix": {
+    "true_negative": 409308,
+    "false_positive": 9564,
+    "false_negative": 1683,
+    "true_positive": 83326
+  },
+  "preprocessing_seconds": 1.2732767020006577,
+  "optimizer_seconds": 29.39164894899841,
+  "training_wall_seconds_including_validation": 32.17567983200024,
+  "validation_prediction_seconds_excluding_scaling": 0.1027188539992494,
+  "validation_rows_per_second": 4905438.294742677,
+  "compressed_model_and_scaler_size_bytes": 82665,
+  "per_attack_validation_recall": {
+    "Bot": {
+      "rows": 390,
+      "detected": 243,
+      "recall": 0.6230769230769231
+    },
+    "DDoS": {
+      "rows": 25603,
+      "detected": 25153,
+      "recall": 0.9824239346951529
+    },
+    "DoS GoldenEye": {
+      "rows": 2057,
+      "detected": 2006,
+      "recall": 0.9752066115702479
+    },
+    "DoS Hulk": {
+      "rows": 34543,
+      "detected": 33972,
+      "recall": 0.9834698781229193
+    },
+    "DoS Slowhttptest": {
+      "rows": 1045,
+      "detected": 1032,
+      "recall": 0.9875598086124402
+    },
+    "DoS slowloris": {
+      "rows": 1077,
+      "detected": 1067,
+      "recall": 0.9907149489322191
+    },
+    "FTP-Patator": {
+      "rows": 1186,
+      "detected": 1169,
+      "recall": 0.9856661045531198
+    },
+    "Heartbleed": {
+      "rows": 2,
+      "detected": 1,
+      "recall": 0.5
+    },
+    "Infiltration": {
+      "rows": 7,
+      "detected": 3,
+      "recall": 0.42857142857142855
+    },
+    "PortScan": {
+      "rows": 18026,
+      "detected": 18018,
+      "recall": 0.999556196604904
+    },
+    "SSH-Patator": {
+      "rows": 644,
+      "detected": 620,
+      "recall": 0.9627329192546584
+    },
+    "Web Attack \ufffd Brute Force": {
+      "rows": 294,
+      "detected": 39,
+      "recall": 0.1326530612244898
+    },
+    "Web Attack \ufffd Sql Injection": {
+      "rows": 4,
+      "detected": 2,
+      "recall": 0.5
+    },
+    "Web Attack \ufffd XSS": {
+      "rows": 131,
+      "detected": 1,
+      "recall": 0.007633587786259542
+    }
+  },
+  "model_parameters": {
+    "activation": "relu",
+    "alpha": 0.0001,
+    "batch_size": 4096,
+    "beta_1": 0.9,
+    "beta_2": 0.999,
+    "early_stopping": false,
+    "epsilon": 1e-08,
+    "hidden_layer_sizes": [
+      32,
+      16
+    ],
+    "learning_rate": "constant",
+    "learning_rate_init": 0.001,
+    "max_fun": 15000,
+    "max_iter": 200,
+    "momentum": 0.9,
+    "n_iter_no_change": 10,
+    "nesterovs_momentum": true,
+    "power_t": 0.5,
+    "random_state": 42,
+    "shuffle": false,
+    "solver": "adam",
+    "tol": 0.0001,
+    "validation_fraction": 0.1,
+    "verbose": false,
+    "warm_start": false
+  }
+}

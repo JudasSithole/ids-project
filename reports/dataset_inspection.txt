@@ -1,0 +1,83 @@
+
+Inspecting: Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+Rows: 225,745
+Columns: 79
+Labels: {'BENIGN': 97718, 'DDoS': 128027}
+Missing cells: 4
+Infinite feature cells: 64
+Invalid numeric feature cells: 0
+
+Inspecting: Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+Rows: 286,467
+Columns: 79
+Labels: {'BENIGN': 127537, 'PortScan': 158930}
+Missing cells: 15
+Infinite feature cells: 727
+Invalid numeric feature cells: 0
+
+Inspecting: Friday-WorkingHours-Morning.pcap_ISCX.csv
+Rows: 191,033
+Columns: 79
+Labels: {'BENIGN': 189067, 'Bot': 1966}
+Missing cells: 28
+Infinite feature cells: 216
+Invalid numeric feature cells: 0
+
+Inspecting: Monday-WorkingHours.pcap_ISCX.csv
+Rows: 529,918
+Columns: 79
+Labels: {'BENIGN': 529918}
+Missing cells: 64
+Infinite feature cells: 810
+Invalid numeric feature cells: 0
+
+Inspecting: Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+Rows: 288,602
+Columns: 79
+Labels: {'BENIGN': 288566, 'Infiltration': 36}
+Missing cells: 18
+Infinite feature cells: 396
+Invalid numeric feature cells: 0
+
+Inspecting: Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+Rows: 170,366
+Columns: 79
+Labels: {'BENIGN': 168186, 'Web Attack � Brute Force': 1507, 'Web Attack � XSS': 652, 'Web Attack � Sql Injection': 21}
+Missing cells: 20
+Infinite feature cells: 250
+Invalid numeric feature cells: 0
+
+Inspecting: Tuesday-WorkingHours.pcap_ISCX.csv
+Rows: 445,909
+Columns: 79
+Labels: {'BENIGN': 432074, 'FTP-Patator': 7938, 'SSH-Patator': 5897}
+Missing cells: 201
+Infinite feature cells: 327
+Invalid numeric feature cells: 0
+
+Inspecting: Wednesday-workingHours.pcap_ISCX.csv
+Rows: 692,703
+Columns: 79
+Labels: {'BENIGN': 440031, 'DoS slowloris': 5796, 'DoS Slowhttptest': 5499, 'DoS Hulk': 231073, 'DoS GoldenEye': 10293, 'Heartbleed': 11}
+Missing cells: 1,008
+Infinite feature cells: 1,586
+Invalid numeric feature cells: 0
+
+TOTAL LABEL COUNTS
+BENIGN: 2,273,097
+Bot: 1,966
+DDoS: 128,027
+DoS GoldenEye: 10,293
+DoS Hulk: 231,073
+DoS Slowhttptest: 5,499
+DoS slowloris: 5,796
+FTP-Patator: 7,938
+Heartbleed: 11
+Infiltration: 36
+PortScan: 158,930
+SSH-Patator: 5,897
+Web Attack � Brute Force: 1,507
+Web Attack � Sql Injection: 21
+Web Attack � XSS: 652
+
+Report saved to: /home/judas/ids-project/reports/dataset_inspection.json

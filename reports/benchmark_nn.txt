@@ -1,0 +1,82 @@
+Preparing nn benchmark...
+Run 1: 0.162s, 3,110,894 rows/s
+Run 2: 0.184s, 2,736,955 rows/s
+Run 3: 0.155s, 3,245,621 rows/s
+Run 4: 0.171s, 2,940,622 rows/s
+Run 5: 0.224s, 2,254,174 rows/s
+
+BENCHMARK RESULTS
+{
+  "model": "nn",
+  "partition": "validation",
+  "rows": 503881,
+  "batch_size": 4096,
+  "workers": 2,
+  "repeats": 5,
+  "dataset_sha256": "9d7f6f1ef737aba562ffe6a0cb092080e95800530235f2280e60b4d6dd12aaea",
+  "median_wall_seconds": 0.17135181599951466,
+  "rows_per_second_at_median_time": 2940622.4676453224,
+  "process_rss_before_measured_runs_mib": 330.5390625,
+  "sampled_peak_process_rss_mib": 330.93359375,
+  "sampled_rss_increase_mib": 0.39453125,
+  "runs": [
+    {
+      "repeat": 1,
+      "wall_seconds": 0.16197307800030103,
+      "cpu_seconds": 0.16999999999999993,
+      "average_cpu_percent_one_core_basis": 104.95571368945892,
+      "rows_per_second": 3110893.527621075,
+      "median_batch_ms": 1.2234920004630112,
+      "p95_batch_ms": 1.7289347505538897,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 2,
+      "wall_seconds": 0.1841027890004625,
+      "cpu_seconds": 0.23000000000000043,
+      "average_cpu_percent_one_core_basis": 124.93020950346526,
+      "rows_per_second": 2736954.734557194,
+      "median_batch_ms": 1.2185120003778138,
+      "p95_batch_ms": 2.2258861491536663,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 3,
+      "wall_seconds": 0.15524950199869636,
+      "cpu_seconds": 0.16999999999999904,
+      "average_cpu_percent_one_core_basis": 109.50115640398418,
+      "rows_per_second": 3245620.7170586037,
+      "median_batch_ms": 1.1353585005053901,
+      "p95_batch_ms": 1.777044899790779,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 4,
+      "wall_seconds": 0.17135181599951466,
+      "cpu_seconds": 0.34000000000000075,
+      "average_cpu_percent_one_core_basis": 198.4221748784756,
+      "rows_per_second": 2940622.4676453224,
+      "median_batch_ms": 1.1892564998561284,
+      "p95_batch_ms": 1.863151399538765,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 5,
+      "wall_seconds": 0.22353248299987172,
+      "cpu_seconds": 0.4400000000000004,
+      "average_cpu_percent_one_core_basis": 196.8394007417047,
+      "rows_per_second": 2254173.501934791,
+      "median_batch_ms": 1.2971834994459641,
+      "p95_batch_ms": 3.755154399914317,
+      "predicted_attack_rows": 92890
+    }
+  ],
+  "notes": [
+    "NN scaling is included.",
+    "Data loading, model loading and warmup are excluded from timing.",
+    "RSS includes data, libraries and retained allocations, not just model.",
+    "Memory sampled every 10ms; brief peaks may be missed.",
+    "Batch timing is not single-flow or packet-to-alert latency.",
+    "CPU percent uses one core as 100%; two busy cores can approach 200%."
+  ]
+}

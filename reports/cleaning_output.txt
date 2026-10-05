@@ -1,0 +1,73 @@
+Reading: Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+Reading: Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+Reading: Friday-WorkingHours-Morning.pcap_ISCX.csv
+Reading: Monday-WorkingHours.pcap_ISCX.csv
+Reading: Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+Reading: Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+Reading: Tuesday-WorkingHours.pcap_ISCX.csv
+Reading: Wednesday-workingHours.pcap_ISCX.csv
+Combining valid records...
+Checking conflicting labels...
+Removing exact duplicates...
+
+CLEANING SUMMARY
+{
+  "valid_rows_before_deduplication": 2827876,
+  "invalid_rows_removed_by_label": {
+    "BENIGN": 1777,
+    "DDoS": 2,
+    "PortScan": 126,
+    "Bot": 10,
+    "FTP-Patator": 3,
+    "DoS Hulk": 949
+  },
+  "exact_conflicting_rows_quarantined": 6666,
+  "conflicting_rows_by_label": {
+    "DoS Hulk": 4873,
+    "PortScan": 1053,
+    "BENIGN": 733,
+    "DDoS": 6,
+    "DoS slowloris": 1
+  },
+  "exact_duplicate_rows_removed": 301806,
+  "duplicate_rows_removed_by_retained_source_label": {
+    "BENIGN": 176227,
+    "PortScan": 67621,
+    "DoS Hulk": 52534,
+    "SSH-Patator": 2678,
+    "FTP-Patator": 2004,
+    "DoS slowloris": 411,
+    "DoS Slowhttptest": 271,
+    "Web Attack \ufffd Brute Force": 37,
+    "DDoS": 8,
+    "Bot": 8,
+    "DoS GoldenEye": 7
+  },
+  "final_rows": 2519404,
+  "feature_count": 77,
+  "final_binary_counts": {
+    "0": 2094360,
+    "1": 425044
+  },
+  "final_original_label_counts": {
+    "BENIGN": 2094360,
+    "DoS Hulk": 172717,
+    "DDoS": 128011,
+    "PortScan": 90130,
+    "DoS GoldenEye": 10286,
+    "FTP-Patator": 5931,
+    "DoS slowloris": 5384,
+    "DoS Slowhttptest": 5228,
+    "SSH-Patator": 3219,
+    "Bot": 1948,
+    "Web Attack \ufffd Brute Force": 1470,
+    "Web Attack \ufffd XSS": 652,
+    "Infiltration": 36,
+    "Web Attack \ufffd Sql Injection": 21,
+    "Heartbleed": 11
+  },
+  "duplicate_policy": "Keep first record in sorted file order for identical features and binary target; attack-subtype counts reflect that choice."
+}
+
+Dataset saved: /home/judas/ids-project/data/processed/cleaned_flows.pkl
+Report saved: /home/judas/ids-project/reports/cleaning_report.json

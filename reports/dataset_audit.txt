@@ -1,0 +1,67 @@
+
+Auditing: Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
+Rows: 225,745
+Rows with invalid features: 34
+Invalid cells by column: {'Flow Bytes/s': 34, 'Flow Packets/s': 34}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: []
+
+Auditing: Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
+Rows: 286,467
+Rows with invalid features: 371
+Invalid cells by column: {'Flow Bytes/s': 371, 'Flow Packets/s': 371}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: []
+
+Auditing: Friday-WorkingHours-Morning.pcap_ISCX.csv
+Rows: 191,033
+Rows with invalid features: 122
+Invalid cells by column: {'Flow Bytes/s': 122, 'Flow Packets/s': 122}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: []
+
+Auditing: Monday-WorkingHours.pcap_ISCX.csv
+Rows: 529,918
+Rows with invalid features: 437
+Invalid cells by column: {'Flow Bytes/s': 437, 'Flow Packets/s': 437}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: []
+
+Auditing: Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
+Rows: 288,602
+Rows with invalid features: 207
+Invalid cells by column: {'Flow Bytes/s': 207, 'Flow Packets/s': 207}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: []
+
+Auditing: Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
+Rows: 170,366
+Rows with invalid features: 135
+Invalid cells by column: {'Flow Bytes/s': 135, 'Flow Packets/s': 135}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: ['Web Attack � Brute Force', 'Web Attack � Sql Injection', 'Web Attack � XSS']
+
+Auditing: Tuesday-WorkingHours.pcap_ISCX.csv
+Rows: 445,909
+Rows with invalid features: 264
+Invalid cells by column: {'Flow Bytes/s': 264, 'Flow Packets/s': 264}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: []
+
+Auditing: Wednesday-workingHours.pcap_ISCX.csv
+Rows: 692,703
+Rows with invalid features: 1,297
+Invalid cells by column: {'Flow Bytes/s': 1297, 'Flow Packets/s': 1297}
+Repeated-header mismatches: {'Fwd Header Length.1': 0}
+Labels containing replacement characters: []
+
+AUDIT SUMMARY
+total_rows: 2830743
+rows_with_invalid_features: 2867
+invalid_cells_by_column: {'Flow Bytes/s': 2867, 'Flow Packets/s': 2867}
+valid_rows: 2827876
+duplicate_candidates_beyond_first: 307078
+feature_hashes_with_conflicting_binary_labels: 697
+rows_in_conflicting_hash_groups: 6666
+
+Report saved to: /home/judas/ids-project/reports/dataset_audit.json

@@ -1,0 +1,16 @@
+Label | Total rows | Invalid rows | Remaining rows
+BENIGN | 2,273,097 | 1,777 | 2,271,320
+Bot | 1,966 | 10 | 1,956
+DDoS | 128,027 | 2 | 128,025
+DoS GoldenEye | 10,293 | 0 | 10,293
+DoS Hulk | 231,073 | 949 | 230,124
+DoS Slowhttptest | 5,499 | 0 | 5,499
+DoS slowloris | 5,796 | 0 | 5,796
+FTP-Patator | 7,938 | 3 | 7,935
+Heartbleed | 11 | 0 | 11
+Infiltration | 36 | 0 | 36
+PortScan | 158,930 | 126 | 158,804
+SSH-Patator | 5,897 | 0 | 5,897
+Web Attack � Brute Force | 1,507 | 0 | 1,507
+Web Attack � Sql Injection | 21 | 0 | 21
+Web Attack � XSS | 652 | 0 | 652

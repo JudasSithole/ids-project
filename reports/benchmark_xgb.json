@@ -1,0 +1,74 @@
+{
+  "model": "xgb",
+  "partition": "validation",
+  "rows": 503881,
+  "batch_size": 4096,
+  "workers": 2,
+  "repeats": 5,
+  "dataset_sha256": "9d7f6f1ef737aba562ffe6a0cb092080e95800530235f2280e60b4d6dd12aaea",
+  "median_wall_seconds": 0.7579048829993553,
+  "rows_per_second_at_median_time": 664834.0857838603,
+  "process_rss_before_measured_runs_mib": 332.046875,
+  "sampled_peak_process_rss_mib": 332.3203125,
+  "sampled_rss_increase_mib": 0.2734375,
+  "runs": [
+    {
+      "repeat": 1,
+      "wall_seconds": 0.7579048829993553,
+      "cpu_seconds": 1.5200000000000005,
+      "average_cpu_percent_one_core_basis": 200.55287069595164,
+      "rows_per_second": 664834.0857838603,
+      "median_batch_ms": 5.445333999887225,
+      "p95_batch_ms": 8.837469599984615,
+      "predicted_attack_rows": 85354
+    },
+    {
+      "repeat": 2,
+      "wall_seconds": 0.8605343449999054,
+      "cpu_seconds": 1.7199999999999998,
+      "average_cpu_percent_one_core_basis": 199.87581088354918,
+      "rows_per_second": 585544.3224640329,
+      "median_batch_ms": 6.5481894998811185,
+      "p95_batch_ms": 10.387189149423646,
+      "predicted_attack_rows": 85354
+    },
+    {
+      "repeat": 3,
+      "wall_seconds": 0.7253262659996835,
+      "cpu_seconds": 1.0600000000000005,
+      "average_cpu_percent_one_core_basis": 146.14112981818627,
+      "rows_per_second": 694695.6474897875,
+      "median_batch_ms": 5.334164999112545,
+      "p95_batch_ms": 9.007306299736227,
+      "predicted_attack_rows": 85354
+    },
+    {
+      "repeat": 4,
+      "wall_seconds": 0.8199576799997885,
+      "cpu_seconds": 1.6099999999999994,
+      "average_cpu_percent_one_core_basis": 196.35159707271902,
+      "rows_per_second": 614520.739655893,
+      "median_batch_ms": 5.71834750007838,
+      "p95_batch_ms": 10.128961350801546,
+      "predicted_attack_rows": 85354
+    },
+    {
+      "repeat": 5,
+      "wall_seconds": 0.6824080820006202,
+      "cpu_seconds": 1.0399999999999991,
+      "average_cpu_percent_one_core_basis": 152.40147756618362,
+      "rows_per_second": 738386.624206983,
+      "median_batch_ms": 5.238407000433654,
+      "p95_batch_ms": 6.6156934501123015,
+      "predicted_attack_rows": 85354
+    }
+  ],
+  "notes": [
+    "NN scaling is included.",
+    "Data loading, model loading and warmup are excluded from timing.",
+    "RSS includes data, libraries and retained allocations, not just model.",
+    "Memory sampled every 10ms; brief peaks may be missed.",
+    "Batch timing is not single-flow or packet-to-alert latency.",
+    "CPU percent uses one core as 100%; two busy cores can approach 200%."
+  ]
+}

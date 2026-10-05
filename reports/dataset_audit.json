@@ -1,0 +1,122 @@
+{
+  "files": [
+    {
+      "file": "Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv",
+      "rows": 225745,
+      "rows_with_invalid_features": 34,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 34,
+        "Flow Packets/s": 34
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": []
+    },
+    {
+      "file": "Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv",
+      "rows": 286467,
+      "rows_with_invalid_features": 371,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 371,
+        "Flow Packets/s": 371
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": []
+    },
+    {
+      "file": "Friday-WorkingHours-Morning.pcap_ISCX.csv",
+      "rows": 191033,
+      "rows_with_invalid_features": 122,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 122,
+        "Flow Packets/s": 122
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": []
+    },
+    {
+      "file": "Monday-WorkingHours.pcap_ISCX.csv",
+      "rows": 529918,
+      "rows_with_invalid_features": 437,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 437,
+        "Flow Packets/s": 437
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": []
+    },
+    {
+      "file": "Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv",
+      "rows": 288602,
+      "rows_with_invalid_features": 207,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 207,
+        "Flow Packets/s": 207
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": []
+    },
+    {
+      "file": "Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv",
+      "rows": 170366,
+      "rows_with_invalid_features": 135,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 135,
+        "Flow Packets/s": 135
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": [
+        "Web Attack \ufffd Brute Force",
+        "Web Attack \ufffd Sql Injection",
+        "Web Attack \ufffd XSS"
+      ]
+    },
+    {
+      "file": "Tuesday-WorkingHours.pcap_ISCX.csv",
+      "rows": 445909,
+      "rows_with_invalid_features": 264,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 264,
+        "Flow Packets/s": 264
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": []
+    },
+    {
+      "file": "Wednesday-workingHours.pcap_ISCX.csv",
+      "rows": 692703,
+      "rows_with_invalid_features": 1297,
+      "invalid_cells_by_column": {
+        "Flow Bytes/s": 1297,
+        "Flow Packets/s": 1297
+      },
+      "repeated_header_mismatches": {
+        "Fwd Header Length.1": 0
+      },
+      "labels_with_replacement_character": []
+    }
+  ],
+  "total_rows": 2830743,
+  "rows_with_invalid_features": 2867,
+  "invalid_cells_by_column": {
+    "Flow Bytes/s": 2867,
+    "Flow Packets/s": 2867
+  },
+  "valid_rows": 2827876,
+  "duplicate_candidates_beyond_first": 307078,
+  "feature_hashes_with_conflicting_binary_labels": 697,
+  "rows_in_conflicting_hash_groups": 6666
+}

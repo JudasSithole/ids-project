@@ -1,0 +1,33 @@
+# Python environment and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Datasets and packet captures
+data/
+*.pcap
+*.pcapng
+
+# Trained models and prediction arrays
+models/
+*.joblib
+*.pkl
+*.pickle
+*.npz
+*.npy
+
+# Local secrets
+.env
+.env.*
+!.env.example
+*Password*.csv
+*Passwor*.csv
+
+# Temporary files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db

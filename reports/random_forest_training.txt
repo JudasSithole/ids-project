@@ -1,0 +1,121 @@
+Loading data...
+Training on 1,511,642 rows...
+Evaluating validation data...
+
+VALIDATION RESULTS
+{
+  "evaluation_partition": "validation",
+  "threshold": 0.5,
+  "training_rows": 1511642,
+  "validation_rows": 503881,
+  "model_parameters": {
+    "bootstrap": true,
+    "ccp_alpha": 0.0,
+    "class_weight": "balanced",
+    "criterion": "gini",
+    "max_depth": 16,
+    "max_features": "sqrt",
+    "max_leaf_nodes": null,
+    "max_samples": null,
+    "min_impurity_decrease": 0.0,
+    "min_samples_leaf": 5,
+    "min_samples_split": 2,
+    "min_weight_fraction_leaf": 0.0,
+    "monotonic_cst": null,
+    "n_estimators": 100,
+    "n_jobs": 2,
+    "oob_score": false,
+    "random_state": 42,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "precision": 0.9956658092251313,
+  "recall": 0.997165006058182,
+  "f1": 0.9964148437224501,
+  "average_precision": 0.9998672845805984,
+  "false_positive_rate": 0.0008809373746633816,
+  "confusion_matrix": {
+    "true_negative": 418503,
+    "false_positive": 369,
+    "false_negative": 241,
+    "true_positive": 84768
+  },
+  "training_seconds": 220.4515576520007,
+  "validation_batch_prediction_seconds": 1.7714320360000784,
+  "validation_rows_per_second": 284448.395286884,
+  "compressed_model_size_bytes": 3812056,
+  "per_attack_validation_recall": {
+    "Bot": {
+      "rows": 390,
+      "detected": 242,
+      "recall": 0.6205128205128205
+    },
+    "DDoS": {
+      "rows": 25603,
+      "detected": 25593,
+      "recall": 0.9996094207710033
+    },
+    "DoS GoldenEye": {
+      "rows": 2057,
+      "detected": 2051,
+      "recall": 0.9970831307729704
+    },
+    "DoS Hulk": {
+      "rows": 34543,
+      "detected": 34497,
+      "recall": 0.9986683264337203
+    },
+    "DoS Slowhttptest": {
+      "rows": 1045,
+      "detected": 1039,
+      "recall": 0.9942583732057416
+    },
+    "DoS slowloris": {
+      "rows": 1077,
+      "detected": 1075,
+      "recall": 0.9981429897864438
+    },
+    "FTP-Patator": {
+      "rows": 1186,
+      "detected": 1182,
+      "recall": 0.9966273187183811
+    },
+    "Heartbleed": {
+      "rows": 2,
+      "detected": 2,
+      "recall": 1.0
+    },
+    "Infiltration": {
+      "rows": 7,
+      "detected": 6,
+      "recall": 0.8571428571428571
+    },
+    "PortScan": {
+      "rows": 18026,
+      "detected": 18025,
+      "recall": 0.999944524575613
+    },
+    "SSH-Patator": {
+      "rows": 644,
+      "detected": 641,
+      "recall": 0.9953416149068323
+    },
+    "Web Attack \ufffd Brute Force": {
+      "rows": 294,
+      "detected": 290,
+      "recall": 0.9863945578231292
+    },
+    "Web Attack \ufffd Sql Injection": {
+      "rows": 4,
+      "detected": 2,
+      "recall": 0.5
+    },
+    "Web Attack \ufffd XSS": {
+      "rows": 131,
+      "detected": 123,
+      "recall": 0.9389312977099237
+    }
+  }
+}
+
+Model saved: /home/judas/ids-project/models/random_forest_baseline.joblib
