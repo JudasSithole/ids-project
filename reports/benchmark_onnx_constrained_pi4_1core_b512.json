@@ -1,0 +1,82 @@
+{
+  "model": "onnx",
+  "label": "pi4_1core_b512",
+  "partition": "validation",
+  "rows": 503881,
+  "batch_size": 512,
+  "cores_affinity": 1,
+  "threads": 1,
+  "repeats": 5,
+  "dataset_sha256": "9d7f6f1ef737aba562ffe6a0cb092080e95800530235f2280e60b4d6dd12aaea",
+  "median_wall_seconds": 0.7063064829999348,
+  "rows_per_second_at_median_time": 713402.7679596514,
+  "process_rss_before_measured_runs_mib": 347.74609375,
+  "sampled_peak_process_rss_mib": 348.1875,
+  "sampled_rss_increase_mib": 0.44140625,
+  "runs": [
+    {
+      "repeat": 1,
+      "wall_seconds": 0.7063064829999348,
+      "cpu_seconds": 0.6799999999999997,
+      "average_cpu_percent_one_core_basis": 96.27548611925491,
+      "rows_per_second": 713402.7679596514,
+      "median_batch_ms": 0.4607150003721472,
+      "p95_batch_ms": 1.6493253988301149,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 2,
+      "wall_seconds": 0.7147795300006692,
+      "cpu_seconds": 0.6999999999999993,
+      "average_cpu_percent_one_core_basis": 97.93229529101707,
+      "rows_per_second": 704946.0411933289,
+      "median_batch_ms": 0.46795399975962937,
+      "p95_batch_ms": 1.6268784009298527,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 3,
+      "wall_seconds": 0.736446306000289,
+      "cpu_seconds": 0.6999999999999993,
+      "average_cpu_percent_one_core_basis": 95.05105725925449,
+      "rows_per_second": 684206.0254692923,
+      "median_batch_ms": 0.44620299922826234,
+      "p95_batch_ms": 1.9342381991009454,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 4,
+      "wall_seconds": 0.6869134879998455,
+      "cpu_seconds": 0.6799999999999997,
+      "average_cpu_percent_one_core_basis": 98.9935431287022,
+      "rows_per_second": 733543.6103710826,
+      "median_batch_ms": 0.4525599997577956,
+      "p95_batch_ms": 1.5076870000484632,
+      "predicted_attack_rows": 92890
+    },
+    {
+      "repeat": 5,
+      "wall_seconds": 0.6961123359997146,
+      "cpu_seconds": 0.6799999999999997,
+      "average_cpu_percent_one_core_basis": 97.68538277998259,
+      "rows_per_second": 723850.122949418,
+      "median_batch_ms": 0.4630229996109847,
+      "p95_batch_ms": 1.5831414006242985,
+      "predicted_attack_rows": 92890
+    }
+  ],
+  "environment": {
+    "system": "Linux",
+    "machine": "x86_64",
+    "cpu_count": 4,
+    "cpu_count_physical": 4,
+    "total_memory_gb": 7.732509613037109
+  },
+  "notes": [
+    "Constrained benchmark - simulated low-spec environment",
+    "CPU affinity set to 1 core(s), threadpool limited to 1",
+    "NN/ONNX scaling included where applicable.",
+    "Data loading, model loading and warmup are excluded from timing.",
+    "RSS includes data, libraries and retained allocations."
+  ]
+}
