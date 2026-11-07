@@ -31,3 +31,6 @@ models/
 *.tmp
 .DS_Store
 Thumbs.db
+# Snort runtime artifacts (large)
+snort_out/
+reports/snort_alerts*.json

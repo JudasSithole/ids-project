@@ -1,0 +1,23 @@
+{
+  "dataset": "CICIDS2017 Friday test subset",
+  "rows_evaluated": 123161,
+  "alerts_loaded": 214369,
+  "alerts_matched_to_flows": 0,
+  "flows_flagged": 0,
+  "time_tolerance_seconds": 2.0,
+  "confusion_matrix": {
+    "tn": 79144,
+    "fp": 0,
+    "fn": 44017,
+    "tp": 0
+  },
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "fpr": 0.0,
+  "notes": [
+    "Snort alerts correlated to CICFlowMeter flows by 5-tuple (both directions) and timestamp window overlap.",
+    "Only Friday rows present in the held-out test split are evaluated for fair comparison with ML models.",
+    "Alert timestamps assumed year 2017 for CICIDS2017 PCAP alignment."
+  ]
+}
