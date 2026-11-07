@@ -213,6 +213,8 @@ This study designed and evaluated a lightweight behavioural intrusion detection 
 - Fig. 5: `reports/figures/05_xgb_per_attack_recall.png`
 - Fig. 6: `reports/figures/06_per_attack_comparison.png`
 - Fig. 7: `reports/figures/07_snort_ml_comparison.png` (PDF: `.pdf`) — ML vs Snort 3 Community Rules on Friday held-out test subset
+- Fig. 8: `reports/figures/08_snort_confusion_matrix.png` (PDF: `.pdf`) — Snort 3 correlated-flow confusion matrix heatmap (counts + row-normalized %) on Friday held-out test subset
+- Fig. 9: `reports/figures/09_resource_cpu_memory.png` (PDF: `.pdf`) — Resource efficiency under emulated 1-core constraint: peak RSS, CPU utilization, and throughput (ML rows/s vs Snort PCAP MB/s; units not directly comparable)
 
 ### B. Reproducibility Artifacts
 - Data cleaning: `reports/cleaning_report.json`
