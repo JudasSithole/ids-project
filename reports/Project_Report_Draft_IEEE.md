@@ -83,15 +83,15 @@ Stratified splitting by `original_label` was performed using `scikit-learn` [4] 
 To better reflect operational IDS trade-offs, decision thresholds were tuned on the validation set by sweeping τ ∈ {0.3,0.35,0.4,0.45,0.5,0.55,0.6,0.65,0.7}. For each model, the threshold maximising validation F1-score was selected and evaluated on the locked test set. Selected thresholds: RF = 0.6, XGBoost = 0.7, MLP = 0.7.
 
 ### F. Evaluation Metrics
-The following metrics were used: Accuracy, Precision, Recall (TPR), F1-score, False Positive Rate (FPR = FP/(FP+TN)), Average Precision (AP/PR-AUC), Confusion Matrix, and per-attack recall. Due to class imbalance, Precision-Recall analysis was emphasised alongside ROC analysis.
+Detection metrics: Accuracy, Precision, Recall (TPR), F1-score, FPR = FP/(FP+TN), confusion matrix, and per-attack recall where applicable. **Resource-efficiency metrics (proposal requirement):** detection latency, CPU utilization, and RAM usage. Because physical Raspberry Pi hardware was unavailable, low-spec behavior was **emulated** (1 CPU core affinity via `taskset`/process affinity, 1 thread via BLAS/OpenMP/threadpool controls, sampled CPU/RSS via `psutil`). Results are reported as an emulated Raspberry Pi 4-class 1-vCPU proxy.
 
-### G. Snort Evaluation Approach
-1) **PCAP Selection:** Friday-WorkingHours PCAP containing DDoS traffic. 
-2) **Ruleset:** Snort Community Ruleset (version to be recorded).
-3) **Execution:** Snort run in IDS mode against the selected PCAP with alerts logged to fast.log/alert output.
-4) **Subset Alignment:** Filter test set to flows with `source_file = Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv` present in the held-out test split (n = 44,669).
-5) **Correlation:** Map Snort alerts to flows using 5-tuple (Src IP, Dst IP, Src Port, Dst Port, Protocol) and timestamp proximity, leveraging IP/Port/Timestamp from original CSVs where available.
-6) **Comparative Evaluation:** Compute identical metrics for Snort on the correlated subset and compare against all tuned ML models evaluated on the same subset.
+### G. Snort vs ML Comparison (Friday Test Subset)
+1) **PCAP:** `/media/sf_OdinShare/Friday-WorkingHours.pcap` (8.84 GB).  
+2) **Snort:** Snort++ **3.12.2.0**, offline mode `-r`, `-A alert_fast -q`, config `snort_friday_alert.lua` (loads `/usr/local/etc/snort/snort_defaults.lua` + `snort.lua`, `HOME_NET/EXTERNAL_NET=any`).  
+3) **Ruleset:** Snort 3 Community Rules, **4,026** rules (`snort_rules/snort3-community-rules/snort3-community.rules`). Output: 1,617,398 alert lines (`snort_out/alert_fast.txt`, local).  
+4) **Subset alignment (fair comparison):** only Friday flows in the held-out **test split** were scored (**123,161** rows: 79,144 benign, 44,017 attack; Morning + Afternoon-DDoS + Afternoon-PortScan).  
+5) **Correlation:** alerts parsed by `src/parse_snort_alert_fast.py` and correlated by 5-tuple (both directions) with a **+61,260 s** timestamp offset and **±300 s** window (`src/correlate_snort_friday_fast.py`, `reports/snort_friday_evaluation_final.json`). Limitations: packet-vs-flow granularity, timestamp alignment uncertainty, and decoder/L2 alerts (e.g., 1.39M `{eth}`) lacking flow 5-tuples.  
+6) **Resource benchmark:** `src/benchmark_snort_constrained.py` runs Snort under 1-core affinity and samples CPU/RSS; output `reports/benchmark_snort_constrained_pi4_1core.json` (may require long runtime on 8.84 GB PCAP).
 
 ---
 
@@ -147,41 +147,46 @@ Fig. 5 shows XGBoost per-attack recall, whilst Fig. 6 compares all three models 
 Based on overall F1-score, recall, and per-attack performance, **XGBoost with threshold 0.7** was selected as the primary ML model for the Snort comparison.
 
 ### D. Snort vs ML Comparison (Friday Subset)
-*(To be completed)*
-
-**TABLE III**  
-**COMPARISON ON FRIDAY SUBSET (SNORT VS TUNED ML MODELS)**
-
-*(Results to be inserted once correlation is completed)*
-
-**TABLE IV**  
-**PER-ATTACK COMPARPARISON ON FRIDAY SUBSET**
-
-*(Results to be inserted)*
-
-Fig. 7: Snort vs ML comparison on Friday subset *(to be added)*
+Completed. See **Section III.G** and **Section IV.C–IV.D (ML vs Snort Comparison)** above for the fair Friday test-subset results: Snort 3.12.2.0 + 4,026 Community Rules, correlated-flow evaluation (`reports/snort_friday_evaluation_final.json`) vs tuned RF/XGBoost/MLP (`reports/friday_ml_tuned_subset.json`). Resource efficiency is reported in Table VI and constrained benchmark JSONs.
 
 ---
+
+### C. Resource Efficiency (Emulated Low-Spec Testbed)
+
+All ML batch-inference measurements were collected on the Friday held-out test subset (123,161 rows) with 1-core affinity and 1-thread limits. Snort was measured offline on the full Friday PCAP (8.84 GB) under `taskset -c 0`. Metrics are reproducible from `reports/benchmark_*_constrained_pi4_1core.json` and `reports/benchmark_snort_constrained_pi4_1core.json`.
+
+**TABLE VI**  
+**RESOURCE EFFICIENCY (EMULATED 1-CORE)**
+
+| System | Wall time (s) | Throughput | Latency/flow (ms) | Peak RSS (MiB) | Notes |
+| :--- | ---: | ---: | ---: | ---: | :--- |
+| Random Forest | 2.249 | 54,767 flows/s | 0.0183 | 351.9 | sklearn + joblib, 123,161 flows |
+| XGBoost | 0.919 | 134,023 flows/s | 0.00746 | 332.5 | xgboost 3.4.1, 123,161 flows |
+| Small Neural Network (MLP) | 0.227 | 542,020 flows/s | 0.00184 | 329.4 | sklearn MLP + StandardScaler, 123,161 flows |
+| **Snort 3.12.2.0 (Community Rules)** | **595.44** | **14.16 MB/s** (PCAP) | *(N/A)* | **200.59** | Offline full Friday PCAP 8.84 GB, `taskset -c 0`, return 0; sampled mean CPU% sum 27.84% |
+
+*Interpretation:* Snort’s measurement is packet/PCAP processing throughput (offline read), while ML throughput is flow-feature batch inference; they are not directly equivalent units. On this emulated single-core setting, ML batch inference over pre-extracted flows is fast and memory-bounded (~330–352 MiB), while Snort required ~595 s to process the 8.84 GB PCAP with ~201 MiB sampled peak RSS for the measured process.
+
 
 ## V. Conclusion and Future Work
 
 ### A. Conclusion
-*(To be written after completing Section IV.D)*
+This study designed and evaluated a lightweight behavioural intrusion detection pipeline for resource-constrained networks using CICIDS2017 flow features and compared it against a signature-based Snort 3 baseline. On the Friday held-out test subset (123,161 flows), tuned behavioural models substantially outperformed the correlated Snort Community Rules baseline in flow-label detection: **XGBoost** achieved the best F1 (**0.9981**, FPR 0.00169), followed by **Random Forest** (F1 0.9962) and the **Small Neural Network** (F1 0.9822), while correlated Snort achieved **F1 0.5038** (precision 0.6906, recall 0.3966, FPR 0.0988). Under an emulated 1-core constrained setting, all ML models performed batch inference efficiently (XGBoost ~134k flows/s, ~333 MiB peak RSS; NN fastest at ~542k flows/s). The results indicate that lightweight behavioural ML offers a strong accuracy–feasibility trade-off for resource-constrained deployments, while signature IDS remains useful for explicit rule matches; hybrid deployment is a promising direction.
 
 ### B. Limitations
 1. Only Friday-WorkingHours traffic was used for the Snort comparison due to PCAP availability/size constraints.
-2. Correlation between Snort alerts and CICFlowMeter flows may not achieve 100% mapping due to aggregation and timing.
-3. Snort detection is limited to attacks covered by the Community Ruleset.
-4. Flow-based features do not include raw payload inspection in the same form as Snort.
-5. Some attack classes have minimal support in the subset, limiting statistical significance.
+2. Correlation between Snort alerts and CICFlowMeter flows is imperfect due to packet-to-flow aggregation, timestamp offsets, and decoder/L2 alerts without 5-tuples.
+3. Snort detection is limited to attacks covered by the Community Ruleset and the configured inspection path.
+4. Flow-based ML features differ from Snort’s packet/payload inspection; comparisons should be interpreted as complementary detection paradigms.
+5. Resource metrics were collected on an **emulated** 1-core testbed, not physical Raspberry Pi hardware.
+6. Some attack classes have limited support in the evaluated subset.
 
 ### C. Future Work
-1. Extend the comparison to multiple CICIDS2017 days/PCAPs.
-2. Evaluate with alternative rulesets (e.g., Emerging Threats).
-3. Investigate improved alert-flow correlation techniques.
-4. Apply explainability methods (e.g., SHAP) to analyse ML decisions.
-5. Explore hybrid approaches combining signature-based and ML-based detection.
-
+1. Extend the comparison to multiple CICIDS2017 days/PCAPs and live-capture conditions.
+2. Evaluate with alternative rulesets (e.g., Emerging Threats) and tuned Snort preprocessors.
+3. Improve alert-flow correlation (per-packet flow reconstruction, better time alignment, rule filtering).
+4. Apply explainability methods (e.g., SHAP) to behavioural model decisions.
+5. Explore hybrid signature + ML pipelines and deployment on physical Raspberry Pi/IoT hardware.
 ---
 
 ## References
@@ -207,7 +212,7 @@ Fig. 7: Snort vs ML comparison on Friday subset *(to be added)*
 - Fig. 4: `reports/figures/04_pr_curves.png`
 - Fig. 5: `reports/figures/05_xgb_per_attack_recall.png`
 - Fig. 6: `reports/figures/06_per_attack_comparison.png`
-- Fig. 7: *(To be added after Snort comparison)*
+- Fig. 7: `reports/figures/07_snort_ml_comparison.png` (PDF: `.pdf`) — ML vs Snort 3 Community Rules on Friday held-out test subset
 
 ### B. Reproducibility Artifacts
 - Data cleaning: `reports/cleaning_report.json`

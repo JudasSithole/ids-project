@@ -1,0 +1,45 @@
+{
+  "model": "snort3_community",
+  "label": "pi4_1core_emulated",
+  "pcap": "/media/sf_OdinShare/Friday-WorkingHours.pcap",
+  "pcap_bytes": 8839309056,
+  "config": "snort_friday_alert.lua",
+  "log_dir": "snort_out/resource_bench",
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "/usr/local/bin/snort",
+    "-c",
+    "snort_friday_alert.lua",
+    "-r",
+    "/media/sf_OdinShare/Friday-WorkingHours.pcap",
+    "-A",
+    "alert_fast",
+    "-l",
+    "snort_out/resource_bench",
+    "-q"
+  ],
+  "returncode": 0,
+  "wall_seconds": 595.4440109729767,
+  "pcap_mb_per_second": 14.157203475285185,
+  "sampled_peak_process_rss_mib": 200.58984375,
+  "sampled_mean_cpu_percent_sum": 27.84397283531409,
+  "sample_count": 589,
+  "sample_interval_seconds": 1.0,
+  "cores_affinity": "0",
+  "snort_version": "\n   ,,_     -*> Snort++ <*-",
+  "stderr_tail": "",
+  "stdout_tail": "",
+  "environment": {
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+    "processor": "x86_64",
+    "logical_cpus": 7
+  },
+  "notes": [
+    "Offline PCAP read (-r) with -q; throughput is PCAP MB/s, not live capture throughput.",
+    "CPU percent is psutil's per-interval sum over process+children; on multi-core hosts values can exceed 100 but affinity was constrained via taskset.",
+    "Emulated low-spec: intended to approximate constrained single-core behavior; no physical Raspberry Pi used."
+  ]
+}

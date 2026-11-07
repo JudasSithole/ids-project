@@ -1,0 +1,146 @@
+{
+  "friday_test_subset_ml_tuned": {
+    "rf": {
+      "threshold": 0.35,
+      "tp": 43955,
+      "fp": 271,
+      "tn": 78873,
+      "fn": 62,
+      "precision": 0.9938723827612717,
+      "recall": 0.9985914533021333,
+      "f1": 0.9962263295672178,
+      "fpr": 0.0034241382795916304,
+      "rows": 123161
+    },
+    "xgb": {
+      "threshold": 0.7,
+      "tp": 43986,
+      "fp": 134,
+      "tn": 79010,
+      "fn": 31,
+      "precision": 0.9969628286491388,
+      "recall": 0.9992957266510666,
+      "f1": 0.9981279144967494,
+      "fpr": 0.0016931163448903265,
+      "rows": 123161
+    },
+    "nn": {
+      "threshold": 0.7,
+      "tp": 42673,
+      "fp": 202,
+      "tn": 78942,
+      "fn": 1344,
+      "precision": 0.9952886297376093,
+      "recall": 0.9694663425494695,
+      "f1": 0.9822077981862543,
+      "fpr": 0.0025523097139391487,
+      "rows": 123161
+    }
+  },
+  "snort_friday_correlation": {
+    "dataset": "CICIDS2017 Friday test subset",
+    "rows_evaluated": 123161,
+    "alerts_loaded": 1617388,
+    "alerts_matched_to_flows": 74638,
+    "flows_flagged": 25275,
+    "time_tolerance_seconds": 300.0,
+    "alert_offset_seconds_applied": 61260.0,
+    "alert_offset_seconds_auto_estimated": null,
+    "confusion_matrix": {
+      "tn": 71324,
+      "fp": 7820,
+      "fn": 26562,
+      "tp": 17455
+    },
+    "precision": 0.6906033630069238,
+    "recall": 0.39655133243973917,
+    "f1": 0.5038099636321653,
+    "fpr": 0.09880723744061458,
+    "notes": [
+      "Fast correlation by flow-indexed tuples with optional timestamp offset.",
+      "Decoder/L2 alerts without flow tuples may not match."
+    ]
+  },
+  "constrained_benchmarks": {
+    "onnxq": {
+      "model": "onnxq",
+      "median_wall_seconds": 0.7224996029999602,
+      "rows_per_second_at_median_time": 697413.532004429,
+      "sampled_peak_process_rss_mib": 349.41015625,
+      "sampled_rss_increase_mib": 0.40234375
+    },
+    "onnx": {
+      "model": "onnx",
+      "median_wall_seconds": 0.5191549430001032,
+      "rows_per_second_at_median_time": 970579.2207007838,
+      "sampled_peak_process_rss_mib": 349.1171875,
+      "sampled_rss_increase_mib": 0.39453125
+    },
+    "nn": {
+      "model": "nn",
+      "median_wall_seconds": 0.9296352300007129,
+      "rows_per_second_at_median_time": 542020.1211604401,
+      "sampled_peak_process_rss_mib": 329.44921875,
+      "sampled_rss_increase_mib": 0.3984375
+    },
+    "xgb": {
+      "model": "xgb",
+      "median_wall_seconds": 3.75966796800094,
+      "rows_per_second_at_median_time": 134022.73931863176,
+      "sampled_peak_process_rss_mib": 332.5,
+      "sampled_rss_increase_mib": 0.40234375
+    },
+    "rf": {
+      "model": "rf",
+      "median_wall_seconds": 9.200401567999506,
+      "rows_per_second_at_median_time": 54767.28339256192,
+      "sampled_peak_process_rss_mib": 351.87109375,
+      "sampled_rss_increase_mib": 0.41015625
+    }
+  },
+  "snort_constrained_resource": {
+    "model": "snort3_community",
+    "label": "pi4_1core_emulated",
+    "pcap": "/media/sf_OdinShare/Friday-WorkingHours.pcap",
+    "pcap_bytes": 8839309056,
+    "config": "snort_friday_alert.lua",
+    "log_dir": "snort_out/resource_bench",
+    "command": [
+      "taskset",
+      "-c",
+      "0",
+      "/usr/local/bin/snort",
+      "-c",
+      "snort_friday_alert.lua",
+      "-r",
+      "/media/sf_OdinShare/Friday-WorkingHours.pcap",
+      "-A",
+      "alert_fast",
+      "-l",
+      "snort_out/resource_bench",
+      "-q"
+    ],
+    "returncode": 0,
+    "wall_seconds": 595.4440109729767,
+    "pcap_mb_per_second": 14.157203475285185,
+    "sampled_peak_process_rss_mib": 200.58984375,
+    "sampled_mean_cpu_percent_sum": 27.84397283531409,
+    "sample_count": 589,
+    "sample_interval_seconds": 1.0,
+    "cores_affinity": "0",
+    "snort_version": "\n   ,,_     -*> Snort++ <*-",
+    "stderr_tail": "",
+    "stdout_tail": "",
+    "environment": {
+      "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.39",
+      "processor": "x86_64",
+      "logical_cpus": 7
+    },
+    "notes": [
+      "Offline PCAP read (-r) with -q; throughput is PCAP MB/s, not live capture throughput.",
+      "CPU percent is psutil's per-interval sum over process+children; on multi-core hosts values can exceed 100 but affinity was constrained via taskset.",
+      "Emulated low-spec: intended to approximate constrained single-core behavior; no physical Raspberry Pi used."
+    ]
+  }
+}
