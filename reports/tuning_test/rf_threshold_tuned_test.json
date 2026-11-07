@@ -1,0 +1,117 @@
+{
+  "model": "rf",
+  "evaluation_partition": "test",
+  "experiment": "threshold_tuning",
+  "threshold": 0.6,
+  "rows": 503881,
+  "dataset_sha256": "9d7f6f1ef737aba562ffe6a0cb092080e95800530235f2280e60b4d6dd12aaea",
+  "accuracy": 0.9988787035034066,
+  "precision": 0.9970334793049865,
+  "recall": 0.9963180369137385,
+  "f1": 0.9966756297181052,
+  "average_precision": 0.9998810802474968,
+  "false_positive_rate": 0.0006016157680627972,
+  "confusion_matrix": {
+    "true_negative": 418620,
+    "false_positive": 252,
+    "false_negative": 313,
+    "true_positive": 84696
+  },
+  "per_attack_test_recall": {
+    "Bot": {
+      "rows": 389,
+      "detected": 238,
+      "missed": 151,
+      "recall": 0.6118251928020566
+    },
+    "DDoS": {
+      "rows": 25602,
+      "detected": 25593,
+      "missed": 9,
+      "recall": 0.9996484649636748
+    },
+    "DoS GoldenEye": {
+      "rows": 2058,
+      "detected": 2048,
+      "missed": 10,
+      "recall": 0.9951409135082604
+    },
+    "DoS Hulk": {
+      "rows": 34544,
+      "detected": 34445,
+      "missed": 99,
+      "recall": 0.997134089856415
+    },
+    "DoS Slowhttptest": {
+      "rows": 1046,
+      "detected": 1040,
+      "missed": 6,
+      "recall": 0.994263862332696
+    },
+    "DoS slowloris": {
+      "rows": 1077,
+      "detected": 1073,
+      "missed": 4,
+      "recall": 0.9962859795728877
+    },
+    "FTP-Patator": {
+      "rows": 1186,
+      "detected": 1181,
+      "missed": 5,
+      "recall": 0.9957841483979764
+    },
+    "Heartbleed": {
+      "rows": 2,
+      "detected": 2,
+      "missed": 0,
+      "recall": 1.0
+    },
+    "Infiltration": {
+      "rows": 7,
+      "detected": 4,
+      "missed": 3,
+      "recall": 0.5714285714285714
+    },
+    "PortScan": {
+      "rows": 18026,
+      "detected": 18022,
+      "missed": 4,
+      "recall": 0.999778098302452
+    },
+    "SSH-Patator": {
+      "rows": 644,
+      "detected": 634,
+      "missed": 10,
+      "recall": 0.984472049689441
+    },
+    "Web Attack \ufffd Brute Force": {
+      "rows": 294,
+      "detected": 290,
+      "missed": 4,
+      "recall": 0.9863945578231292
+    },
+    "Web Attack \ufffd Sql Injection": {
+      "rows": 4,
+      "detected": 1,
+      "missed": 3,
+      "recall": 0.25
+    },
+    "Web Attack \ufffd XSS": {
+      "rows": 130,
+      "detected": 125,
+      "missed": 5,
+      "recall": 0.9615384615384616
+    }
+  },
+  "validation_best": {
+    "threshold": 0.6,
+    "f1": 0.996634700241219,
+    "precision": 0.9969162321535764,
+    "recall": 0.996353327294757,
+    "fpr": 0.0006254894096525907,
+    "tn": 418610,
+    "fp": 262,
+    "fn": 310,
+    "tp": 84699
+  }
+}

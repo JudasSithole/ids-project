@@ -1,0 +1,24 @@
+{
+  "dataset": "CICIDS2017 Friday test subset",
+  "rows_evaluated": 123161,
+  "alerts_loaded": 1617388,
+  "alerts_matched_to_flows": 0,
+  "flows_flagged": 0,
+  "time_tolerance_seconds": 60.0,
+  "alert_offset_seconds_applied": 0.0,
+  "alert_offset_seconds_auto_estimated": null,
+  "confusion_matrix": {
+    "tn": 79144,
+    "fp": 0,
+    "fn": 44017,
+    "tp": 0
+  },
+  "precision": 0.0,
+  "recall": 0.0,
+  "f1": 0.0,
+  "fpr": 0.0,
+  "notes": [
+    "Fast correlation by flow-indexed tuples with optional timestamp offset.",
+    "Decoder/L2 alerts without flow tuples may not match."
+  ]
+}
