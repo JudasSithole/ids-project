@@ -1,0 +1,63 @@
+========================================================================
+COMMANDS EXECUTED DURING THIS EVALUATION
+========================================================================
+Interpreter for all ML steps: .venv/bin/python
+Working directory: /home/judas/ids-project
+
+------------------------------------------------------------------------
+STEP 1 - Full-test detection metrics (validation-selected thresholds)
+------------------------------------------------------------------------
+.venv/bin/python evaluation_final/verify_full_test.py
+  -> evaluation_final/detection_metrics_full_test.csv
+  Reproduces Table I of the draft report from saved models + saved split
+  indices. Thresholds RF=0.6, XGB=0.7, MLP=0.7 are the validation-selected
+  values (reports/tuning_test/*_threshold_tuned_test.json); they were NOT
+  chosen from test labels.
+
+------------------------------------------------------------------------
+STEP 2 - Friday-subset RF threshold discrepancy investigation
+------------------------------------------------------------------------
+.venv/bin/python evaluation_final/recompute_friday.py
+  -> evaluation_final/detection_metrics_friday_both_thresholds.csv
+  -> evaluation_final/friday_recompute.json
+  Reproduces the Friday test subset exactly as
+  src/correlate_snort_friday_fast.py does (test split + source_file contains
+  "Friday"). Evaluates each model at BOTH the validation-selected threshold
+  and the threshold recorded in reports/friday_ml_tuned_subset.json.
+
+------------------------------------------------------------------------
+STEP 3 - ONNX correctness check
+------------------------------------------------------------------------
+.venv/bin/python evaluation_final/onnx_check.py
+  -> evaluation_final/onnx_agreement.csv
+  Compares native sklearn MLP vs neural_network.onnx vs
+  neural_network_quantized.onnx on identical test records, identical
+  preprocessing (StandardScaler), identical threshold (0.7).
+
+------------------------------------------------------------------------
+STEP 4 - Resource measurements
+------------------------------------------------------------------------
+NO NEW MEASUREMENTS TAKEN. The five constrained benchmark logs
+  reports/benchmark_{rf,xgb,nn,onnx,onnxq}_constrained_pi4_1core.json
+already contain five repeated runs under documented settings (1 core
+affinity, 1 thread, batch 4096, validation partition, 503,881 rows).
+They were flattened into:
+  evaluation_final/build_benchmark_csvs.py
+  -> evaluation_final/benchmark_runs.csv
+  -> evaluation_final/benchmark_summary.csv
+Per the task instructions these logs were reused as-is.
+
+------------------------------------------------------------------------
+STEP 5 - Snort
+------------------------------------------------------------------------
+NO NEW RUN. Reused reports/snort_friday_evaluation_final.json and
+reports/benchmark_snort_constrained_pi4_1core.json (see report for config).
+
+------------------------------------------------------------------------
+STEP 6 - Environment record
+------------------------------------------------------------------------
+uname -a; cat /etc/os-release; nproc; lscpu; free -m
+.venv/bin/python -c "import sklearn,numpy,pandas,xgboost,onnxruntime,scipy,...
+hostname; systemd-detect-virt; cat /sys/hypervisor/type
+.venv/bin/python -c "import onnxruntime; print(onnxruntime.get_available_providers())"
+========================================================================
