@@ -1,0 +1,69 @@
+========================================================================
+OFFLINE IDS EVALUATION - ENVIRONMENT RECORD
+========================================================================
+Generated: (see commands_run.txt)
+Scope: offline evaluation of saved models on a resource-constrained Linux VM.
+NOT a Raspberry Pi, power, or real-time deployment benchmark.
+
+------------------------------------------------------------------------
+1. HOST / VIRTUALISATION
+------------------------------------------------------------------------
+Hostname:             judas-VirtualBox
+Hypervisor:           Oracle VirtualBox (systemd-detect-virt = "oracle")
+Linux distribution:  Ubuntu 24.04.5 LTS
+Kernel:               Linux 7.0.0-42-generic #42~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC
+Architecture:         x86_64 (GNU/Linux)
+
+CPU (physical allocation visible to the guest):
+  Model:              12th Gen Intel(R) Core(TM) i5-1235U
+  Logical CPUs:       7
+  Cores per socket:   7
+  Threads per core:   1
+  Sockets:            1
+  CPU governor:       not exposed (cpufreq scaling_governor unreadable in guest)
+
+Host/hypervisor details beyond the above are NOT discoverable from inside the
+guest and are recorded as UNKNOWN.
+
+------------------------------------------------------------------------
+2. MEMORY
+------------------------------------------------------------------------
+Total RAM (guest):    7,917 MB (~7.73 GiB, per free -m)
+  Used at record time: 3,137 MB
+  Available:           4,779 MB
+  Buff/cache:          2,937 MB
+
+------------------------------------------------------------------------
+3. PYTHON / LIBRARY VERSIONS (project virtualenv: /home/judas/ids-project/.venv)
+------------------------------------------------------------------------
+Interpreter:          /home/judas/ids-project/.venv/bin/python
+Python:               3.12.3 (main, Aug 31 2026) [GCC 13.3.0]
+sklearn:              1.9.1
+numpy:                2.5.3
+pandas:               3.0.6
+xgboost:              3.4.1
+onnxruntime:          1.31.1  (providers: CPUExecutionProvider, AzureExecutionProvider)
+scipy:                1.18.1
+threadpoolctl:        3.7.0
+joblib:               1.6.0
+
+------------------------------------------------------------------------
+4. THREAD / CPU SETTINGS (held constant for every ML measurement in this work)
+------------------------------------------------------------------------
+Constrained benchmarks: CPU affinity pinned to 1 core (taskset -c 0) and
+threadpool_limits(1) applied; n_jobs=2 for RF/XGB inside the venv.
+ONNX sessions:         CPUExecutionProvider only.
+Environment variables OPENBLAS_NUM_THREADS / OMP_NUM_THREADS /
+MKL_NUM_THREADS / NUMEXPR_NUM_THREADS: all UNSET (library defaults apply).
+
+------------------------------------------------------------------------
+5. SAVED EVIDENCE LOCATIONS
+------------------------------------------------------------------------
+Dataset:              data/processed/cleaned_flows.pkl  (SHA-256 9d7f6f1e...)
+Split indices:        data/processed/split_indices.npz  (seed 42, stratified)
+Labels:               data/labelled_flows (on shared mount)
+Models:               models/*.joblib, models/*.ubj, models/*.onnx
+Snort binary:         /usr/local/bin/snort  (Snort++ 3.12.2.0)
+Snort ruleset:        snort_rules/snort3-community-rules/snort3-community.rules (4,026 rules)
+Snort PCAP:           /media/sf_OdinShare/Friday-WorkingHours.pcap (8,839,309,056 bytes)
+========================================================================
